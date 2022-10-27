@@ -5,14 +5,17 @@
       <div class="left">
         <div class="box1">
           <!-- <dv-border-box-1></dv-border-box-1> -->
+          <RealProgressMon />
         </div>
         <div class="box2">
           <!-- <dv-border-box-9></dv-border-box-9> -->
+          <CurrentStatus></CurrentStatus>
         </div>
       </div>
       <div class="right">
         <div class="box3">
           <!-- <dv-border-box-9></dv-border-box-9> -->
+          <RealProgressDay />
         </div>
         <div class="box4">
           <!-- <dv-border-box-1></dv-border-box-1> -->
@@ -24,8 +27,17 @@
 
 <script>
 
+import CurrentStatus from './components/CurrentStatus.vue';
+import RealProgressDay from './components/RealProgressDay.vue';
+import RealProgressMon from './components/RealProgressMon.vue';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    CurrentStatus,
+    RealProgressDay,
+    RealProgressMon,
+  }
 }
 </script>
 

@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-    <div class="item">4</div>
-    <div class="item">5</div>
+    <dv-border-box-10 id="header">
+      生产进度现况板
+    </dv-border-box-10>
+    <dv-border-box-11 class="item" title="月别实时进度">
+      <HelloWorld></HelloWorld>
+    </dv-border-box-11>
+    <dv-border-box-11 title="日别实时进度">
+
+    </dv-border-box-11>
+    <dv-border-box-11 title="在工现况">
+
+    </dv-border-box-11>
+    <dv-border-box-11 title="小时别实时进度">
+
+    </dv-border-box-11>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  components: {
+    HelloWorld
+  }
 }
 </script>
 
@@ -71,10 +84,14 @@ export default {
     grid-area: hour;
   } // 小时别容器设置
 
-  .item{
-    background-color: rgba(gainsboro, 0.1);
-  }
+}
 
+#header{
+  // display: inline-flex;
+  // text-align: center;
+  // align-items: center;
+  text-align: center;
+  font-size: 5vh;
 }
 
 </style>

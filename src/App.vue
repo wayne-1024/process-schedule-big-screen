@@ -25,7 +25,9 @@ export default {
 #app{
   width: 100vw;
   height: 100vh;
+  background-image: url('../src/assets/screen.png');
   display: grid;
+  color: white;
 
   // 1) 绘制网格线
   // grid-template-columns: 45vw 45vw;
@@ -70,10 +72,9 @@ export default {
   } // 小时别容器设置
 
   .item{
-    background-color: gainsboro;
+    background-color: rgba(gainsboro, 0.1);
   }
 
 }
-
 
 </style>

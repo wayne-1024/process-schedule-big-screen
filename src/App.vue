@@ -1,30 +1,41 @@
 <template>
+  <!-- 全局容器布局 -->
   <div id="app">
+    <!-- 头部容器 -->
     <dv-border-box-10 id="header">
       生产进度现况板
     </dv-border-box-10>
+
+    <!-- 月别实时进度容器 -->
     <dv-border-box-11 class="item" title="月别实时进度">
-      <HelloWorld></HelloWorld>
+      <!-- <HelloWorld></HelloWorld> -->
     </dv-border-box-11>
+
+    <!-- 日别实时进度容器 -->
     <dv-border-box-11 title="日别实时进度">
-
+      <DayRealProgress></DayRealProgress>
     </dv-border-box-11>
+
+    <!-- 在工现况容器 -->
     <dv-border-box-11 title="在工现况">
-
+      <CurrentStatus></CurrentStatus>
     </dv-border-box-11>
-    <dv-border-box-11 title="小时别实时进度">
 
+    <!-- 小时别进度容器 -->
+    <dv-border-box-11 title="小时别实时进度">
     </dv-border-box-11>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld
+    CurrentStatus: () => import("./components/CurrentStatus.vue"),
+    DayRealProgress: () => import("./components/DayRealProgress.vue")
   }
 }
 </script>

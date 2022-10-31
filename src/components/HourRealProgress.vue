@@ -45,7 +45,7 @@ export default {
       }
       this.hourRealData.push({key: index, step: titleMap[item]})
     }
-    console.log(this.hourRealData)
+    // console.log(this.hourRealData)
 
     this.hourRealColumn.push({title: '工程', dataIndex: 'step'})
     for(var i in this.hourRealProgress){
@@ -53,7 +53,7 @@ export default {
       console.log(item)
       this.hourRealColumn.push({title: titleMap[item], dataIndex: item})
     }
-    console.log(this.hourRealColumn)
+    // console.log(this.hourRealColumn)
   },
   data() {
     return {
@@ -108,7 +108,7 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   // background-color: rgba(aliceblue, 0.1);
 
@@ -116,23 +116,22 @@ export default {
     width: 80%;
     height:80%;
     // 可以取消相对定位
-    // position: relative;
-    // bottom: -15px;
+    position: relative;
+    bottom: 15px;
     // background-color: rgba(white, 0.1);
 
     & /deep/ .ant-table-thead > tr > th {
       color: white;
-      background-color:rgba(rgb(56, 56, 202), 0.2);
+      background-color:rgba(rgb(56, 56, 202), 0.4);
       border-color: rgba(white, 0.5);
-      // padding: 0px!important;
+      padding: 0.3vh!important;
     }
 
     & /deep/ .ant-table-tbody > tr > td {
       color: white;
       border-color: rgba(white, 0.5);
       // background-color: red;
-      height: 30px;
-      padding: 0px!important;
+      padding: 0.1vh!important;
     }
 
     & /deep/ .ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
@@ -142,6 +141,7 @@ export default {
     & /deep/ .ant-table {
       // background-color: red;
       border-color: rgba(white, 0.5);
+      height: 80px;
     }
   }
 }

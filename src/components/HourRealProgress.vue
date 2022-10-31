@@ -124,7 +124,7 @@ export default {
       color: white;
       background-color:rgba(rgb(56, 56, 202), 0.4);
       border-color: rgba(white, 0.5);
-      padding: 0.3vh!important;
+      // padding: 0.3vh!important;
     }
 
     & /deep/ .ant-table-tbody > tr > td {

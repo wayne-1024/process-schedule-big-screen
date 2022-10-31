@@ -43,9 +43,11 @@ export default {
       window.addEventListener('resize', ()=>{
         myChart.resize()
       })
-      // TJODO 测试数据
+      // TODO 测试数据
       let option = {
-        legend: {},
+        legend: {
+          textStyle: {color: 'white'}
+        },
         tooltip: {},
         dataset: {
           // 用 dimensions 指定了维度的顺序。直角坐标系中，如果 X 轴 type 为 category，
@@ -55,9 +57,18 @@ export default {
           dimensions: Object.keys(this.dayRealData[0]),
           source: this.dayRealData
         },
-        xAxis: { type: 'category' },
-        yAxis: {},
-        series: [{ type: 'line' }, { type: 'line' }, { type: 'bar' }]
+        xAxis: { 
+          type: 'category',
+          axisLabel: {
+            color: 'white'
+          }
+        },
+        yAxis: {
+          axisLabel: {
+            color: 'white'
+          }
+        },
+        series: [{ type: 'line', name: '计划', color: 'orange' }, { type: 'line', name: '实时计划' }, { type: 'bar', name: '实时进度', barWidth: 50 , color: '#6f86d6' }]
       }
       myChart.setOption(option)
     }

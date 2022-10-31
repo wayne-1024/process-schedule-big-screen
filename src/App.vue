@@ -8,7 +8,7 @@
 
     <!-- 月别实时进度容器 -->
     <dv-border-box-11 class="item" title="月别实时进度">
-      <!-- <HelloWorld></HelloWorld> -->
+      <MonthRealProgress></MonthRealProgress>
     </dv-border-box-11>
 
     <!-- 日别实时进度容器 -->
@@ -37,7 +37,8 @@ export default {
     // HelloWorld
     CurrentStatus: () => import("./components/CurrentStatus.vue"),
     DayRealProgress: () => import("./components/DayRealProgress.vue"),
-    HourRealProgress: () => import("./components/HourRealProgress.vue")
+    HourRealProgress: () => import("./components/HourRealProgress.vue"),
+    MonthRealProgress: () => import("./components/MonthRealProgress.vue")
   }
 }
 </script>

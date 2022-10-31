@@ -37,15 +37,23 @@ export default {
         myChart.resize()
       })
       let option = {
+        // legend: {
+        //   textStyle: {color: 'white'}
+        // },
         xAxis: {
           type: 'category',
           data: Object.keys(this.currData),
           axisLabel: {
             interval: 0,
-            rotate: 40
+            rotate: 40,
+            color: 'white'
           }  // 设置倾斜角度
         },
-        yAxis: {},
+        yAxis: {
+          axisLabel: {
+            color: 'white'
+          }
+        },
         series: [
           {
             type: 'bar',

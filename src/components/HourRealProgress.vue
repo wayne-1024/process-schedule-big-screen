@@ -43,10 +43,31 @@ export default {
       if(item == 'step') {
         continue
       }
+      console.log(item)
       this.hourRealData.push({key: index, step: titleMap[item]})
     }
     console.log(this.hourRealData)
 
+    // for(var value in Object.olb_values(this.hourRealProgress[0])) {
+    //   let item = Object.olb_values(this.hourRealProgress[0])[value]
+    //   if(item['step'] == 'OLB'){
+    //     continue
+    //   }
+    //   console.log(item)
+    //   this.olbData.push({index:value, olb_values: item})
+    // }
+    // console.log(this.olbData)
+
+    // for(var mt_value in Object.mt_values(this.hourRealProgress[0])) {
+    //   let item = Object.mt_values(this.hourRealProgress[0])[mt_value]
+    //   if(item['step'] == 'MMT'){
+    //     continue
+    //   }
+    //   console.log(item)
+    //   this.mmtData.push({index:mt_value, mt_values: item})
+    // }
+    // console.log(this.mmtData)
+    
     this.hourRealColumn.push({title: '工程', dataIndex: 'step'})
     for(var i in this.hourRealProgress){
       let item = this.hourRealProgress[i]['step']
@@ -54,6 +75,7 @@ export default {
       this.hourRealColumn.push({title: titleMap[item], dataIndex: item})
     }
     console.log(this.hourRealColumn)
+
   },
   data() {
     return {
@@ -97,7 +119,9 @@ export default {
       ],  // 小时别进度
       hourRealColumn: [],  // 列名
       hourRealData: [],
-      stepColumn: []
+      stepColumn: [],
+      olbData:[],
+      mmtData:[],
     }
   }
 }

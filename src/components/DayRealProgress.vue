@@ -45,7 +45,12 @@ export default {
       })
       // TJODO 测试数据
       let option = {
-        legend: {},
+        legend: {
+          data:['计划','实时计划','实时进度'],
+          textStyle: {
+            color:'#fff'
+          }
+        },
         tooltip: {},
         dataset: {
           // 用 dimensions 指定了维度的顺序。直角坐标系中，如果 X 轴 type 为 category，
@@ -57,7 +62,21 @@ export default {
         },
         xAxis: { type: 'category' },
         yAxis: {},
-        series: [{ type: 'line' }, { type: 'line' }, { type: 'bar' }]
+        series: [
+          { 
+            type: 'line',
+            name: '计划',
+          },
+          { 
+            type: 'line',
+            name: '实时计划',
+          },
+          {
+            type: 'bar',
+            name: '实时进度',
+            barWidth: 50,
+          }
+        ]
       }
       myChart.setOption(option)
     }

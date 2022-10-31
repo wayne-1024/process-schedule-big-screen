@@ -13,7 +13,7 @@
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
+
 const titleMap = {
   step: '工程',
   plan: '计划',
@@ -35,42 +35,6 @@ const titleMap = {
   MMT: '检查'
 }
 
-const columns = [
-  {
-    title: '工程',
-    dataIndex: 'name',
-  },
-  {
-    title: '中板切',
-    dataIndex: 'money',
-  },
-  {
-    title: '实装',
-    dataIndex: 'address',
-  },
-];
-
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    money: '￥300,000.00',
-    address: 'New York No. 1 Lake Park',
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    money: '￥1,256,000.00',
-    address: 'London No. 1 Lake Park',
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    money: '￥120,000.00',
-    address: 'Sidney No. 1 Lake Park',
-  },
-];
-
 export default {
   name: 'HourRealProgress',
   mounted() {
@@ -79,7 +43,7 @@ export default {
       if(item == 'step') {
         continue
       }
-      this.hourRealData.push({key: index, step: item})
+      this.hourRealData.push({key: index, step: titleMap[item]})
     }
     console.log(this.hourRealData)
 
@@ -93,8 +57,6 @@ export default {
   },
   data() {
     return {
-      data,
-      columns,
       hourRealProgress: [
           {
               "step": "OLB",

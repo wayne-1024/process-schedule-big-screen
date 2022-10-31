@@ -26,8 +26,6 @@ export default {
   },
   mounted() {
     this.initCharts()
-    console.log(Object.keys(this.currData))
-    console.log(Object.values(this.currData))
   },
   methods: {
     initCharts(){
@@ -73,7 +71,7 @@ export default {
 
   .myChart{
     width: 80%;
-    height:80%;
+    height:100%;
     // 可以取消相对定位
     position: relative;
     bottom: -15px;

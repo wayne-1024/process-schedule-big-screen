@@ -23,6 +23,7 @@
 
     <!-- 小时别进度容器 -->
     <dv-border-box-11 title="小时别实时进度">
+      <HourRealProgress></HourRealProgress>
     </dv-border-box-11>
   </div>
 </template>
@@ -35,7 +36,8 @@ export default {
   components: {
     // HelloWorld
     CurrentStatus: () => import("./components/CurrentStatus.vue"),
-    DayRealProgress: () => import("./components/DayRealProgress.vue")
+    DayRealProgress: () => import("./components/DayRealProgress.vue"),
+    HourRealProgress: () => import("./components/HourRealProgress.vue")
   }
 }
 </script>
@@ -56,7 +58,7 @@ export default {
   // 1) 绘制网格线
   // grid-template-columns: 45vw 45vw;
   // grid-template-rows: 8vh 35vh 15vh 35vh;
-  grid-template: 8vh 35vh 15vh 35vh / 45vw 45vw;  // 一行绘制
+  grid-template: 8vh 30vh 25vh 30vh / 45vw 45vw;  // 一行绘制
 
   // 2) 网格区域命名
   grid-template-areas:  "header header"

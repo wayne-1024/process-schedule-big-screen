@@ -140,23 +140,22 @@ export default {
     width: 80%;
     height:80%;
     // 可以取消相对定位
-    // position: relative;
-    // bottom: -15px;
+    position: relative;
+    bottom: -20px;
     // background-color: rgba(white, 0.1);
 
     & /deep/ .ant-table-thead > tr > th {
       color: white;
       background-color:rgba(rgb(56, 56, 202), 0.2);
       border-color: rgba(white, 0.5);
-      // padding: 0px!important;
+      padding: 0.3vh!important;
     }
 
     & /deep/ .ant-table-tbody > tr > td {
       color: white;
       border-color: rgba(white, 0.5);
       // background-color: red;
-      height: 30px;
-      padding: 0px!important;
+      padding: 0.1vh!important;
     }
 
     & /deep/ .ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {

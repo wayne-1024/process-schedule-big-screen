@@ -7,6 +7,30 @@
 <script>
 export default {
   name: "CurrentStatus",
+  data() {
+    return {
+      dayRealData: [
+          {
+              "step": "OLB",
+              "plan": 33213,
+              "real_plan": 21590,
+              "act": 20421
+          },
+          {
+              "step": "MMT",
+              "plan": 16800,
+              "real_plan": 11490,
+              "act": 1672
+          },
+          {
+              "step": "LCM_BANK",
+              "plan": 0,
+              "real_plan": 0,
+              "act": 3942
+          }
+      ]  // 日别实时数据
+    }
+  },
   mounted() {
     this.initCharts()
   },
@@ -19,121 +43,22 @@ export default {
       window.addEventListener('resize', ()=>{
         myChart.resize()
       })
-    // TJODO 测试数据
-    let option = {
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'shadow'
-        }
-      },
-      legend: {},
-      grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
-      },
-      xAxis: [
-        {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        }
-      ],
-      yAxis: [
-        {
-          type: 'value'
-        }
-      ],
-      series: [
-        {
-          name: 'Direct',
-          type: 'bar',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [320, 332, 301, 334, 390, 330, 320]
+      // TJODO 测试数据
+      let option = {
+        legend: {},
+        tooltip: {},
+        dataset: {
+          // 用 dimensions 指定了维度的顺序。直角坐标系中，如果 X 轴 type 为 category，
+          // 默认把第一个维度映射到 X 轴上，后面维度映射到 Y 轴上。
+          // 如果不指定 dimensions，也可以通过指定 series.encode
+          // 完成映射，参见后文。
+          dimensions: Object.keys(this.dayRealData[0]),
+          source: this.dayRealData
         },
-        {
-          name: 'Email',
-          type: 'bar',
-          stack: 'Ad',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-          name: 'Union Ads',
-          type: 'bar',
-          stack: 'Ad',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-          name: 'Video Ads',
-          type: 'bar',
-          stack: 'Ad',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-          name: 'Search Engine',
-          type: 'bar',
-          data: [862, 1018, 964, 1026, 1679, 1600, 1570],
-          emphasis: {
-            focus: 'series'
-          },
-          markLine: {
-            lineStyle: {
-              type: 'dashed'
-            },
-            data: [[{ type: 'min' }, { type: 'max' }]]
-          }
-        },
-        {
-          name: 'Baidu',
-          type: 'bar',
-          barWidth: 5,
-          stack: 'Search Engine',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [620, 732, 701, 734, 1090, 1130, 1120]
-        },
-        {
-          name: 'Google',
-          type: 'bar',
-          stack: 'Search Engine',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [120, 132, 101, 134, 290, 230, 220]
-        },
-        {
-          name: 'Bing',
-          type: 'bar',
-          stack: 'Search Engine',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [60, 72, 71, 74, 190, 130, 110]
-        },
-        {
-          name: 'Others',
-          type: 'bar',
-          stack: 'Search Engine',
-          emphasis: {
-            focus: 'series'
-          },
-          data: [62, 82, 91, 84, 109, 110, 120]
-        }
-      ]
-    }
+        xAxis: { type: 'category' },
+        yAxis: {},
+        series: [{ type: 'line' }, { type: 'line' }, { type: 'bar' }]
+      }
       myChart.setOption(option)
     }
   }
@@ -153,8 +78,8 @@ export default {
     width: 80%;
     height:80%;
     // 可以取消相对定位
-    // position: relative;
-    // bottom: -15px;
+    position: relative;
+    bottom: -15px;
     // background-color: rgba(white, 0.1);
   }
 }

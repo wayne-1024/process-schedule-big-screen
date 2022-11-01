@@ -283,7 +283,7 @@ export default {
   align-items: center;
 
   .box1 {
-    width: 80%;
+    width: 100%;
     height: 50%;
     display: flex;
     align-items: flex-end;
@@ -293,7 +293,7 @@ export default {
     margin-bottom: 2px;
 
     #myChart {
-      width: 40%;
+      width: 48%;
       height: 80%;
       color: white;
       // position: absolute;
@@ -304,7 +304,7 @@ export default {
     }
 
     #myChart2 {
-      width:40%;
+      width:48%;
       height: 80%;
       // background-color: rgba(blue, 0.1);
       border: 1px solid rgba(white, 0.5);
@@ -314,14 +314,14 @@ export default {
   }
 
   .box2 {
-    width: 80%;
+    width: 100%;
     height: 45%;
     // background-color: rgba(black, 0.2);
     display: flex;
     justify-content: center;
 
     .MonReal{
-      width: 80%;
+      width: 96%;
       height:80%;
       // 可以取消相对定位
       // position: relative;

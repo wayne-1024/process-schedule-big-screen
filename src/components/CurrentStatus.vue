@@ -110,7 +110,7 @@ export default {
   }
 
   .myChart{
-    width: 80%;
+    width: 100%;
     height:100%;
     // 可以取消相对定位
     position: relative;

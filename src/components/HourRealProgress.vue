@@ -140,7 +140,7 @@ export default {
   // background-color: rgba(aliceblue, 0.1);
 
   .hourReal{
-    width: 80%;
+    width: 96%;
     height:80%;
     // 可以取消相对定位
     position: relative;

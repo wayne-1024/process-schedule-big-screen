@@ -1,5 +1,18 @@
 <template>
   <div class="container">
+    <div id="checkBox">
+      <a-radio-group name="radioGroup" :default-value="1">
+        <a-radio :value="1">
+          A
+        </a-radio>
+        <a-radio :value="2">
+          B
+        </a-radio>
+        <a-radio :value="3">
+          C
+        </a-radio>
+      </a-radio-group>
+    </div>
     <a-table class="hourReal" 
       :columns="hourRealColumn"
       :data-source="hourRealData"
@@ -138,6 +151,19 @@ export default {
   align-items: flex-end;
   justify-content: center;
   // background-color: rgba(aliceblue, 0.1);
+
+  #checkBox{
+    width: 170px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top:45px;
+    color: white;
+
+    & /deep/ .ant-radio-wrapper {
+      color: white;
+    }
+  }
 
   .hourReal{
     width: 96%;

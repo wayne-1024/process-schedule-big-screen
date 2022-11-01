@@ -38,19 +38,37 @@ const titleMap = {
 export default {
   name: 'HourRealProgress',
   mounted() {
-    for(var index in Object.keys(this.hourRealProgress[0])) {
+    for(let index in Object.keys(this.hourRealProgress[0])) {
       let item = Object.keys(this.hourRealProgress[0])[index]
       if(item == 'step') {
         continue
       }
-      this.hourRealData.push({key: index, step: titleMap[item]})
+      this.hourRealData.push({key: index, step: titleMap[item], stepIndex: item})
     }
-    // console.log(this.hourRealData)
+
+    var realData = []
+    for(let i in this.hourRealProgress) {
+      // console.log(this.hourRealProgress[i])
+      let step = this.hourRealProgress[i]['step']
+      realData.push({[step]: this.hourRealProgress[i]})
+    }
+    console.log(realData)
+
+    for(let i in this.hourRealData){
+      // console.log(this.hourRealData[i])
+      // console.log(this.hourRealData[i]['stepIndex'])
+      for(let key in realData){
+        // console.log('key:-->', Object.keys(realData[key])[0])
+        // console.log('val:-->', realData[key][Object.keys(realData[key])[0]][this.hourRealData[i]['stepIndex']])
+        this.hourRealData[i][Object.keys(realData[key])[0]] = realData[key][Object.keys(realData[key])[0]][this.hourRealData[i]['stepIndex']]
+      }
+    }
+    console.log(this.hourRealData)
 
     this.hourRealColumn.push({title: '工程', dataIndex: 'step'})
-    for(var i in this.hourRealProgress){
+    for(let i in this.hourRealProgress){
       let item = this.hourRealProgress[i]['step']
-      console.log(item)
+      // console.log(item)
       this.hourRealColumn.push({title: titleMap[item], dataIndex: item})
     }
     // console.log(this.hourRealColumn)
@@ -98,6 +116,15 @@ export default {
       hourRealColumn: [],  // 列名
       hourRealData: [],
       stepColumn: []
+    }
+  },
+  methods: {
+    getDataByType(type) {
+      // console.log(this.hourRealProgress)
+      for(let i in this.hourRealProgress) {
+        console.log('--')
+        console.log(this.hourRealProgress[i][type])
+      }
     }
   }
 }

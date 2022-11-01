@@ -77,6 +77,7 @@ export default {
           }
         },
         yAxis: {
+          splitLine: {show: false},
           axisLabel: {
             color: 'white'
           }

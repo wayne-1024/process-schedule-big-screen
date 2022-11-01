@@ -55,6 +55,9 @@ export default {
         // },
         xAxis: {
           type: 'category',
+          // splitLine: {show: false},
+          // axisTick: {show: false},
+          // axisLine: {show: false},
           data: Object.keys(this.currData),
           axisLabel: {
             interval: 0,
@@ -63,6 +66,9 @@ export default {
           }  // 设置倾斜角度
         },
         yAxis: {
+          // axisTick: {show:false},
+          // axisLine: {show: false},
+          splitLine: {show: false},
           axisLabel: {
             color: 'white'
           }

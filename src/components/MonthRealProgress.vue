@@ -19,46 +19,63 @@
 </template>
 
 <script>
-const MonRealcolumns =[
-  {
-    title:'当月',
-    dataIndex: 'put',
-    key: 'put',
-    customRender(_, row){
-      return{
-        children: row.put,
-        attrs: {
-          rowSpan: row.putRowSpan,
+const renderContent = (data, key) => {
+    var spanArr = [];
+    var position = 0;
+    data.map((item, index) => {
+        if(index === 0) {
+            spanArr.push(1);
+            position = 0;
+        } else {
+            if (data[index][key] === data[index - 1][key]) {
+                spanArr[position] += 1;
+                spanArr.push(0);
+            } else {
+                spanArr.push(1);
+                position = index;
+            }
         }
-      }
-    }
-  },
-  {
-    title: 'Usage',
-    dataIndex : 'usage',
-  },
-  {
-    title:'月计划',
-    dataIndex: 'plan',
-  },
-  {
-    title:'实时计划',
-    dataIndex: 'real_plan',
-  },
-  {
-    title:'实际',
-    dataIndex: 'act',
-  },
-  {
-    title:'GAP',
-    dataIndex: 'gap',
-  }
-];
+    });
+    return spanArr;
+}
 
 export default {
   name: "MonthRealProgress",
   data(){
-
+    const MonRealcolumns =[
+      {
+        title:'当月',
+        dataIndex: 'put',
+        customRender: (value, row, index) => {
+          const obj = {
+            children: value,
+            attrs: {},
+          };
+          obj.attrs.rowSpan = renderContent(this.MonRealData, "put", index)[index];
+          return obj;
+        },
+    },
+    {
+      title: 'Usage',
+      dataIndex : 'usage',
+    },
+    {
+      title:'月计划',
+      dataIndex: 'plan',
+    },
+    {
+      title:'实时计划',
+      dataIndex: 'real_plan',
+    },
+    {
+      title:'实际',
+      dataIndex: 'act',
+    },
+    {
+      title:'GAP',
+      dataIndex: 'gap',
+    }
+  ];
     return{
       MonRealData: [
         {
@@ -130,6 +147,12 @@ export default {
           textStyle: {
             color: 'white',
             fontSize: 14
+          }
+        },
+        tooltip:{
+          trigger: 'axis',
+          axisPointer: {
+            type:'shadow'
           }
         },
         grid: {

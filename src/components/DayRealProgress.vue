@@ -68,7 +68,29 @@ export default {
             color: 'white'
           }
         },
-        series: [{ type: 'line', name: '计划', color: 'orange' }, { type: 'line', name: '实时计划' }, { type: 'bar', name: '实时进度', barWidth: 50 , color: '#6f86d6' }]
+        series: [
+          { 
+            type: 'line', 
+            name: '计划', 
+            color: 'orange' 
+          }, 
+          { 
+            type: 'line', 
+            name: '实时计划', 
+            itemStyle:{
+              color:'#9FE080',
+            }
+          }, 
+          { 
+            type: 'bar', 
+            name: '实时进度', 
+            barWidth: 25,
+            itemStyle:{
+              color:'#5C7BD9',
+              barBorderRadius:[5,5,0,0],
+            } 
+          }
+        ]
       }
       myChart.setOption(option)
     }

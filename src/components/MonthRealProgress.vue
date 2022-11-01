@@ -2,6 +2,7 @@
   <div class="container">
     <div class="box1">
       <div id="myChart"></div>
+      <div id="myChart2"></div>
     </div>
     <div class="box2">
       <a-table class="MonReal" 
@@ -117,46 +118,132 @@ export default {
   },
   methods: {
     initCharts() {
+      // 投入chart
       let myChart = this.$echarts.init(document.getElementById("myChart"))
       window.addEventListener('resize', ()=>{
         myChart.resize()
       })
       let option = {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
+        title: {
+          text: '投入',
+          x: "right",
+          textStyle: {
+            color: 'white',
+            fontSize: 14
           }
         },
-        legend: {},
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
+          left: "0",
+          top: "0",
+          right: "0",
+          bottom: "0",
+          width: '85%',
           containLabel: true
         },
         xAxis: {
           type: 'value',
-          boundaryGap: [0, 0.01]
+          splitLine: {show: false},
+          axisLabel: {show: false},
+          axisTick: {show: false},
+          axisLine: {show: false}
         },
-        yAxis: {
-          type: 'category',
-          data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World']
-        },
-        series: [
+        yAxis: [
           {
-            name: '2011',
-            type: 'bar',
-            data: [18203, 23489, 29034, 104970, 131744, 630230]
+            type: 'category',
+            axisTick: {show:false},
+            axisLine: {show: false},
+            axisLabel: {
+              color: "black",
+              fontSize: 14,
+              textStyle: {
+                color: '#fff',
+                align: 'right'
+              }
+            },
+            data: ['MMT', 'TTL', 'TV'],
+            max: 2,
+            inverse: true
           },
           {
-            name: '2012',
-            type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            type: 'category',
+            axisTick: {show:false},
+            axisLine: {show: false},
+            axisLabel: {
+              color: "black",
+              fontSize: 14,
+              textStyle: {
+                color: '#fff',
+                align: 'right'
+              }
+            },
+            max: 10,
+            inverse: true
+          }
+        ],
+        series: [
+          {
+            name: "实际",
+            type: "bar",
+            barWidth: 19,
+            data: [10, 40, 22],  // 进度数据
+            barCategoryGap: 20,
+            itemStyle:{
+              normal:{
+                barBorderRadius:10,
+                color: new this.$echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                  offset: 0,
+                  color: '#22b6ed'
+                }, {
+                  offset: 1,
+                  color: '#3fE279'
+                }]),
+                label:{
+                  show: true,
+                  textStyle: {
+                    color: 'white'
+                  }
+                }
+              }
+            },
+            zlevel: 1
+          },
+          {
+            name: "进度",
+            type: "bar",
+            barGap: "-100%",
+            barWidth: 19,
+            data:[40, 100, 38],  // 实际数据
+            color: "#2e5384",
+            itemStyle: {
+              normal: {
+                barBorderRadius: 10,
+                label: {
+                  show: true,
+                  position: 'right',
+                  textStyle: {
+                    color: 'white'
+                  }
+                }
+              }
+            }
           }
         ]
-};
+      }
+      option['title']['text'] = "投入"
+      option['series'][0]['data'] = [25, 32, 44]
+      option['series'][1]['data'] = [74, 56, 55]
       myChart.setOption(option)
+
+      // 入库chart
+      let myChart2 = this.$echarts.init(document.getElementById("myChart2"))
+      window.addEventListener('resize', ()=>{
+        myChart2.resize()
+      })
+      let option2= option
+      option2['title']['text'] = "入库"
+      option2['series'][0]['data'] = [20, 12, 32]
+      option2['series'][1]['data'] = [44, 56, 78]
+      myChart2.setOption(option2)
     }
   }
 }
@@ -179,13 +266,27 @@ export default {
     align-items: flex-end;
     justify-content: center;
     position: relative;
+    flex-direction: row;
+    margin-bottom: 2px;
 
     #myChart {
-      width: 80%;
+      width: 40%;
       height: 80%;
       color: white;
-      position: absolute;
-      bottom: 15px;
+      // position: absolute;
+      // bottom: 15px;
+      // background-color: rgba(blue, 0.1);
+      border: 1px solid rgba(white, 0.5);
+      border-right: 0;
+    }
+
+    #myChart2 {
+      width:40%;
+      height: 80%;
+      // background-color: rgba(blue, 0.1);
+      border: 1px solid rgba(white, 0.5);
+      // position: absolute;
+      // bottom: 15px;
     }
   }
 

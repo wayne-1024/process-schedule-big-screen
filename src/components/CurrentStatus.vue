@@ -77,7 +77,19 @@ export default {
           {
             type: 'bar',
             name: 'act',
-            data: Object.values(this.currData)
+            data: Object.values(this.currData),
+            itemStyle: {
+              normal: {
+                label: {
+                  show: true,
+                  position: 'top',
+                  textStyle: {
+                    color: 'white',
+                    fontSize: 12
+                  }
+                }
+              }
+            }
           }
         ]
       }

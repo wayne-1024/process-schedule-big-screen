@@ -7,24 +7,28 @@
     </dv-border-box-10>
 
     <!-- 月别实时进度容器 -->
-    <dv-border-box-11 class="item" title="月别实时进度">
+    <dv-border-box-12 class="item" title="月别实时进度">
+      <div class="real-progress-title">月别实时进度</div>
       <MonthRealProgress></MonthRealProgress>
-    </dv-border-box-11>
+    </dv-border-box-12>
 
     <!-- 日别实时进度容器 -->
-    <dv-border-box-11 title="日别实时进度">
+    <dv-border-box-12 title="日别实时进度">
+      <div class="real-progress-title">日别实时进度</div>
       <DayRealProgress></DayRealProgress>
-    </dv-border-box-11>
+    </dv-border-box-12>
 
     <!-- 在工现况容器 -->
-    <dv-border-box-11 title="在工现况">
+    <dv-border-box-12 title="在工现况">
+      <div class="real-progress-title">在工现况</div>
       <CurrentStatus></CurrentStatus>
-    </dv-border-box-11>
+    </dv-border-box-12>
 
     <!-- 小时别进度容器 -->
-    <dv-border-box-11 title="小时别实时进度">
+    <dv-border-box-12 title="小时别实时进度">
+      <div class="real-progress-title">小时别实时进度</div>
       <HourRealProgress></HourRealProgress>
-    </dv-border-box-11>
+    </dv-border-box-12>
   </div>
 </template>
 
@@ -55,11 +59,12 @@ export default {
   background-image: url('../src/assets/screen.png');
   display: grid;
   color: white;
+  position: relative;
 
   // 1) 绘制网格线
   // grid-template-columns: 45vw 45vw;
   // grid-template-rows: 8vh 35vh 15vh 35vh;
-  grid-template: 8vh 30vh 25vh 30vh / 45vw 45vw;  // 一行绘制
+  grid-template: 8vh 30vh 25vh 30vh / 49vw 49vw;  // 一行绘制
 
   // 2) 网格区域命名
   grid-template-areas:  "header header"
@@ -106,6 +111,13 @@ export default {
   // align-items: center;
   text-align: center;
   font-size: 5vh;
+}
+
+.real-progress-title {
+  position: absolute;
+  top: 0;
+  left: 1vw;
+  font-size: 2rem;
 }
 
 </style>

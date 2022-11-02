@@ -60,19 +60,19 @@ export default {
       dataIndex : 'usage',
     },
     {
-      title:'月计划',
+      title:'月计划(/片)',
       dataIndex: 'plan',
     },
     {
-      title:'实时计划',
+      title:'实时计划(/片)',
       dataIndex: 'real_plan',
     },
     {
-      title:'实际',
+      title:'实际(/片)',
       dataIndex: 'act',
     },
     {
-      title:'GAP',
+      title:'GAP(/片)',
       dataIndex: 'gap',
     }
   ];

@@ -102,6 +102,16 @@ export default {
             itemStyle:{
               color:'#5C7BD9',
               barBorderRadius:[5,5,0,0],
+              normal: {
+                label: {
+                  show: true,
+                  position: 'top',
+                  textStyle: {
+                    color: 'white',
+                    fontSize: 12
+                  }
+                }
+              }
             } 
           }
         ]

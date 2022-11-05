@@ -349,6 +349,9 @@ export default {
         // background-color: red;
         border-color: rgba(white, 0.5);
       }
+      & /deep/ .ant-table-row {
+        line-height: 3.5vh;
+      }
     }
   }
 }

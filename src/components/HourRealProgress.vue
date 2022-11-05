@@ -196,6 +196,14 @@ export default {
       border-color: rgba(white, 0.5);
       height: 80px;
     }
+
+    & /deep/ .ant-table-thead {
+      line-height: 1vh;
+    }
+
+    & /deep/ .ant-table-row{
+      line-height: 2.4vh;
+    }
   }
 }
 </style>
